@@ -1,36 +1,38 @@
-# RevoFlux Full-Stack Fleet & Freight Dispatch CRM
+# RevoFlux AutoCare & Fleet Logistics ERP
 
-[![FastAPI](https://img.shields.io/badge/FastAPI-0.115-009688?style=flat-square&logo=fastapi)](https://fastapi.tiangolo.com)
+[![Python](https://img.shields.io/badge/Python-3.11%2B-blue?style=flat-square&logo=python)](https://python.org)
+[![Django](https://img.shields.io/badge/Django-5.x-092E20?style=flat-square&logo=django)](https://www.djangoproject.com/)
 [![React](https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react)](https://react.dev/)
-[![PostgreSQL](https://img.shields.io/badge/PostGIS-16-336791?style=flat-square&logo=postgresql)](https://postgis.net/)
-[![Tailwind CSS](https://img.shields.io/badge/TailwindCSS-v4-38B2AC?style=flat-square&logo=tailwind-css)](https://tailwindcss.com/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.115-009688?style=flat-square&logo=fastapi)](https://fastapi.tiangolo.com)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-336791?style=flat-square&logo=postgresql)](https://www.postgresql.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
 
-An enterprise-grade, full-stack fleet telematics, dispatch orchestration, and shipment tracking CRM engineered by [RevoFlux](https://revoflux.app) for trucking companies, 3PL freight brokers, last-mile couriers, and intermodal logistics operators.
+An enterprise automotive garage management, vehicle servicing, and commercial fleet logistics ERP engineered by [RevoFlux](https://revoflux.app). Built for multi-bay automotive repair workshops, commercial fleet operators, authorized service centers, and independent mechanics.
 
 ---
 
-## ⚡ Key Highlights
+## ⚡ Core Operational Portals
 
-- **Live GPS Telematics**: Real-time vehicle speed, engine status, and geospatial coordinates via PostGIS.
-- **Dynamic Dispatch Board**: Drag-and-drop driver assignment with automatic route optimization and HOS (Hours of Service) compliance checks.
-- **Electronic Proof of Delivery (e-POD)**: Mobile-optimized signature capture and bill of lading (BOL) image uploads.
-- **Automated Milestone Webhooks**: Instant client notification when shipments reach checkpoints (Departed, Docked, Delayed, Delivered).
+- **Customer Self-Service Portal**: Book service appointments, view real-time vehicle repair milestones, and download itemized invoices.
+- **Mechanic & Technician Workstation**: Digital job cards, parts requisition forms, inspection checklists, and hourly labor tracking.
+- **Service Center Admin Command**: Bay scheduling, mechanic payroll & commission calculation, inventory stock alerts, and customer billing.
+- **Commercial Fleet Telematics**: GPS tracking, vehicle maintenance scheduling, and fuel consumption ledgers.
 
 ---
 
-## 🏗️ Full-Stack Layout
+## 🏗️ Architecture & Modules
 
 ```text
 revoflux-fleet-logistics-crm/
-├── backend/
-│   ├── main.py            # FastAPI REST & WebSocket server
-│   ├── models.py          # Pydantic schemas & SQLAlchemy models
-│   └── requirements.txt
-├── frontend/
-│   └── src/
-│       └── FleetDashboard.tsx # Command center dispatch board
-├── docker-compose.yml     # PostGIS & Backend service orchestration
+├── vehicle/                 # Vehicle service models, job card workflows & forms
+├── vehicleservicemanagement/# Core application settings, auth & routing
+├── backend/                 # FastAPI real-time telematics microservice
+├── frontend/                # React fleet dispatch dashboard
+├── templates/               # Django dynamic templates (Customer, Mechanic, Admin)
+├── static/                  # Stylesheets, vendor scripts, and UI assets
+├── docker-compose.yml       # PostgreSQL & multi-service deployment
+├── manage.py
+├── requirements.txt
 └── README.md
 ```
 
@@ -38,16 +40,31 @@ revoflux-fleet-logistics-crm/
 
 ## 🚀 Quick Start
 
-### 1. Launch Multi-Service Containers
+### 1. Setup Virtual Environment
 ```bash
-docker-compose up -d
+python -m venv venv
+# Windows:
+.\venv\Scripts\activate
+# Linux/macOS:
+source venv/bin/activate
+pip install -r requirements.txt
 ```
-- **Backend API & Swagger Docs:** [http://localhost:8000/docs](http://localhost:8000/docs)
-- **Database:** PostgreSQL/PostGIS on `localhost:5433`
+
+### 2. Run Database Migrations
+```bash
+python manage.py makemigrations
+python manage.py migrate
+```
+
+### 3. Launch Application Server
+```bash
+python manage.py runserver 8000
+```
+Open [http://localhost:8000](http://localhost:8000) to access the RevoFlux AutoCare & Fleet portal.
 
 ---
 
 ## 📄 License
-Released under the [MIT License](LICENSE). Engineered and maintained by [RevoFlux](https://revoflux.app).
+Released under the [MIT License](LICENSE). Maintained by [RevoFlux](https://revoflux.app).
 
-**Inquiries & Freight Integrations:** [revoflux.ai@gmail.com](mailto:revoflux.ai@gmail.com) | [Founder LinkedIn](https://www.linkedin.com/in/muhammad-dawood-dev)
+**Automotive & Fleet Software Customization:** [revoflux.ai@gmail.com](mailto:revoflux.ai@gmail.com) | [Founder LinkedIn](https://www.linkedin.com/in/muhammad-dawood-dev)
